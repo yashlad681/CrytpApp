@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% comment %} <h3>
+    {{notFound}}
+</h3> {% endcomment %}
+
+{% if crypto.Response %}
+   Sorry {{quote}} crypto doesnt exist. Please try again...
+{% endif %}
+{% for key,value in crypto.DISPLAY.items %}
+
+<div class="bg-light p-5 rounded-lg m-3">
+    <h1 class="display-4"> {{key}} </h1>
+    <strong>Name:</strong>{{key}}<br>
+    <strong>Price:</strong> {{value.INR.PRICE}} <br>
+    <strong>Day High:</strong>{{value.INR.HIGHDAY}} <br>
+    <strong>Day Low:</strong>{{value.INR.LOWDAY}} <br>
+    <strong>Market Cap:</strong>{{value.INR.MKTCAP}} <br>
+
+</div>
+
+{% comment %} <tr>
+    <strong>Name:</strong><br>
+    <strong>Price:</strong> {{value.INR.PRICE}} <br>
+    <strong>Day High:</strong>{{value.INR.HIGHDAY}} <br>
+    <strong>Day Low:</strong>{{value.INR.LOWDAY}} <br>
+    <strong>Market Cap:</strong>{{value.INR.MKTCAP}} <br>
+</tr> {% endcomment %}
+{% endfor %}
+<br>
+{% comment %} {{ crypto }} {% endcomment %}
+{% endblock content %}
